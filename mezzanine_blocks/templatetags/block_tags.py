@@ -114,15 +114,17 @@ class FlatBlockNode(template.Node):
                 # safe and convenient to auto-create block if it doesn't exist.
                 # This behaviour can be configured using the
                 # FLATBLOCKS_AUTOCREATE_STATIC_BLOCKS setting
+                page = context.get('page', None)
+                title = page.title if page else real_slug
                 if self.is_rich:
                     flatblock, _ = RichBlock.objects.get_or_create(
                                           slug=real_slug,
-                                          defaults = {'title': real_slug}
+                                          defaults = {'title': title}
                                        )
                 else:
                     flatblock, _ = Block.objects.get_or_create(
                                           slug=real_slug,
-                                          defaults = {'title': real_slug}
+                                          defaults = {'title': title}
                                        )
 
                 if self.cache_time != 0:
