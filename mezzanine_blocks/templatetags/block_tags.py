@@ -115,18 +115,12 @@ class FlatBlockNode(template.Node):
                 # This behaviour can be configured using the
                 # FLATBLOCKS_AUTOCREATE_STATIC_BLOCKS setting
                 if self.is_rich:
-                    if self.is_variable:
-                        flatblock = RichBlock.objects.get(slug=real_slug)
-                    else:
-                        flatblock, _ = RichBlock.objects.get_or_create(
+                    flatblock, _ = RichBlock.objects.get_or_create(
                                           slug=real_slug,
                                           defaults = {'title': real_slug}
                                        )
                 else:
-                    if self.is_variable:
-                        flatblock = Block.objects.get(slug=real_slug)
-                    else:
-                        flatblock, _ = Block.objects.get_or_create(
+                    flatblock, _ = Block.objects.get_or_create(
                                           slug=real_slug,
                                           defaults = {'title': real_slug}
                                        )
