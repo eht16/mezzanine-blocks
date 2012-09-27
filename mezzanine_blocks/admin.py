@@ -5,8 +5,8 @@ from models import Block, RichBlock
 
 class BlockAdmin(admin.ModelAdmin):
     ordering = ['title', ]
-    list_display = ('title', 'login_required', 'show_title')
-    search_fields = ('title', 'content')
+    list_display = ('title', 'slug', 'login_required', 'show_title')
+    search_fields = ('title', 'slug', 'content')
 
     fieldsets = (
         (None, {
@@ -29,8 +29,8 @@ class BlockAdmin(admin.ModelAdmin):
 
 class RichBlockAdmin(admin.ModelAdmin):
     ordering = ['title', ]
-    list_display = ('title', 'login_required', 'show_title')
-    search_fields = ('title', 'content')
+    list_display = ('title', 'slug', 'login_required', 'show_title')
+    search_fields = ('title', 'slug', 'content')
 
     fieldsets = (
         (None, {
