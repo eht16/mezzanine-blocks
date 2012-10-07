@@ -106,7 +106,7 @@ class FlatBlockNode(template.Node):
         try:
             flatblock = None
             if self.cache_time != 0:
-                cache_key = 'mezzanine_blocks' + real_slug
+                cache_key = 'mezzanine_blocks.' + real_slug
                 flatblock = cache.get(cache_key)
             if flatblock is None:
 
