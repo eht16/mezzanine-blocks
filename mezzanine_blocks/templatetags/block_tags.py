@@ -142,10 +142,10 @@ class FlatBlockNode(template.Node):
 
                 if self.cache_time != 0:
                     if self.cache_time is None or self.cache_time == 'None':
-                        logger.debug("Caching %s for the cache's default timeout", real_slug)
+                        #~logger.debug("Caching %s for the cache's default timeout", real_slug)
                         cache.set(cache_key, flatblock)
                     else:
-                        logger.debug("Caching %s for %s seconds", real_slug, str(self.cache_time))
+                        #~logger.debug("Caching %s for %s seconds", real_slug, str(self.cache_time))
                         cache.set(cache_key, flatblock, int(self.cache_time))
                 else:
                     logger.debug("Don't cache %s", real_slug)
